@@ -1,0 +1,331 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Poppins", Arial, sans-serif;
+    min-height: 100vh;
+    overflow-x: hidden;
+    color: #5b3b45;
+
+    background: linear-gradient(
+        180deg,
+        #ffdce7 0%,
+        #ffeef4 45%,
+        #fff8fb 100%
+    );
+}
+
+/* =====================
+   AWAN
+===================== */
+
+.cloud {
+    position: fixed;
+    background: rgba(255, 255, 255, 0.8);
+    width: 150px;
+    height: 45px;
+    border-radius: 50px;
+    filter: blur(1px);
+    z-index: 0;
+}
+
+.cloud::before,
+.cloud::after {
+    content: "";
+    position: absolute;
+    background: inherit;
+    border-radius: 50%;
+}
+
+.cloud::before {
+    width: 70px;
+    height: 70px;
+    left: 25px;
+    bottom: 0;
+}
+
+.cloud::after {
+    width: 90px;
+    height: 90px;
+    right: 20px;
+    bottom: 0;
+}
+
+.cloud1 {
+    top: 12%;
+    left: -180px;
+    animation: moveCloud 30s linear infinite;
+}
+
+.cloud2 {
+    top: 30%;
+    left: -250px;
+    transform: scale(0.7);
+    animation: moveCloud 40s linear infinite;
+    animation-delay: 5s;
+}
+
+.cloud3 {
+    top: 55%;
+    left: -200px;
+    transform: scale(0.5);
+    animation: moveCloud 35s linear infinite;
+    animation-delay: 12s;
+}
+
+@keyframes moveCloud {
+    from {
+        left: -250px;
+    }
+
+    to {
+        left: 110%;
+    }
+}
+
+/* =====================
+   LOVE
+===================== */
+
+.hearts {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.heart {
+    position: absolute;
+    bottom: -30px;
+    font-size: 20px;
+    animation: floatHeart linear forwards;
+    opacity: 0.8;
+}
+
+@keyframes floatHeart {
+    0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 0;
+    }
+
+    20% {
+        opacity: 0.9;
+    }
+
+    100% {
+        transform: translateY(-110vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+/* =====================
+   CONTENT
+===================== */
+
+main {
+    position: relative;
+    z-index: 2;
+}
+
+.hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 30px;
+}
+
+.small {
+    font-size: 15px;
+    opacity: 0.7;
+    margin-bottom: 15px;
+}
+
+.hero h1 {
+    font-size: clamp(42px, 10vw, 80px);
+    color: #d85b7d;
+    margin-bottom: 15px;
+    text-shadow: 0 5px 20px rgba(216, 91, 125, 0.2);
+}
+
+.typing {
+    min-height: 30px;
+    font-size: 18px;
+    margin-bottom: 35px;
+}
+
+button {
+    border: none;
+    padding: 14px 25px;
+    border-radius: 30px;
+    background: #d85b7d;
+    color: white;
+    font-size: 15px;
+    cursor: pointer;
+    box-shadow: 0 8px 20px rgba(216, 91, 125, 0.25);
+    transition: 0.3s;
+}
+
+button:hover {
+    transform: translateY(-4px) scale(1.03);
+}
+
+/* =====================
+   MESSAGE
+===================== */
+
+.message {
+    padding: 80px 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.card {
+    max-width: 700px;
+    padding: 45px 35px;
+    border-radius: 30px;
+
+    background: rgba(255, 255, 255, 0.72);
+    backdrop-filter: blur(12px);
+
+    box-shadow: 0 20px 60px rgba(150, 80, 100, 0.15);
+
+    opacity: 0;
+    transform: translateY(50px);
+    transition: 1s;
+}
+
+.card.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.heart-big {
+    text-align: center;
+    font-size: 60px;
+    animation: beat 1.3s infinite;
+}
+
+@keyframes beat {
+    0%, 100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.2);
+    }
+}
+
+.card h2 {
+    text-align: center;
+    color: #c94f72;
+    margin: 20px 0 30px;
+}
+
+.card p {
+    line-height: 1.9;
+    margin-bottom: 20px;
+    font-size: 15px;
+}
+
+.special {
+    text-align: center;
+    padding: 25px;
+    border-radius: 20px;
+    background: rgba(255, 210, 225, 0.45);
+}
+
+.special b {
+    color: #d34f73;
+}
+
+.from {
+    text-align: right;
+    margin-top: 35px;
+    line-height: 1.8;
+}
+
+/* =====================
+   QUESTION
+===================== */
+
+.question {
+    text-align: center;
+    padding: 100px 25px;
+}
+
+.question h2 {
+    color: #c94f72;
+    margin-bottom: 20px;
+}
+
+.question p {
+    max-width: 600px;
+    margin: auto;
+    line-height: 1.8;
+    margin-bottom: 30px;
+}
+
+.question button {
+    margin: 5px;
+}
+
+#answer {
+    margin-top: 30px;
+    font-size: 20px;
+    color: #d34f73;
+    font-weight: bold;
+}
+
+/* =====================
+   FOOTER
+===================== */
+
+footer {
+    text-align: center;
+    padding: 40px 20px 60px;
+    opacity: 0.7;
+}
+
+footer span {
+    display: block;
+    font-size: 35px;
+    margin-top: 10px;
+}
+
+/* =====================
+   MOBILE
+===================== */
+
+@media (max-width: 600px) {
+
+    .hero {
+        padding: 20px;
+    }
+
+    .hero h1 {
+        font-size: 48px;
+    }
+
+    .typing {
+        font-size: 15px;
+    }
+
+    .card {
+        padding: 30px 22px;
+    }
+
+    .card p {
+        font-size: 14px;
+    }
+
+    .cloud {
+        transform: scale(0.7);
+    }
+}
